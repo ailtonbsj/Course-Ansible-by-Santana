@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+
+  vars:
+    default_dirs: /opt/custom
+
+  tasks:
+  - name: "Create a default folder"
+    file:
+      path: "{{ default_dirs }}"
+      state: directory
+      owner: usuario
+      group: usuario
+  - name: "Create an empty file"
+    file:
+      path: "{{ default_dirs }}/test.sh"
+      state: touch
+      owner: usuario
+      group: usuario
+      mode: 0755
+      modification_time: preserve
+      access_time: preserve

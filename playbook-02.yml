@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+  - name: "Install curl package"
+    apt:
+      update_cache: yes
+      name: "curl"
+      state: absent
+    when: (ansible_facts['distribution'] == "Ubuntu")

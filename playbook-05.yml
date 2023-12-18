@@ -1,0 +1,34 @@
+---
+- hosts: ubuntu
+  become: yes
+  gather_facts: no
+
+  vars:
+    default_dirs: /opt/custom
+
+  tasks:
+  - name: "Create sub folders"
+    file:
+      path: "{{ default_dirs }}/{{ item }}"
+      state: directory
+      owner: usuario
+      group: usuario
+    with_items:
+      - "scripts"
+      - "backup"
+      - "log"
+      - "temp"
+  - name: "Create some files inside folders"
+    file:
+      path: "{{ default_dirs }}/{{ item }}/bin.sh"
+      state: touch
+      owner: usuario
+      group: usuario
+      mode: 0755
+      modification_time: preserve
+      access_time: preserve
+    with_items:
+      - "scripts"
+      - "backup"
+      - "log"
+      - "temp"
