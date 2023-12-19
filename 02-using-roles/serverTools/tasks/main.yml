@@ -1,0 +1,21 @@
+---
+# tasks file for serverTools
+- name: "Role: serverTools softwares utils for sysadmin Debian"
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+    name:
+      - vim
+      - iftop
+      - zip
+      - wget
+      - curl
+      - python3
+    state: latest
+  when: (ansible_facts['os_family'] == "Debian")
+
+- name: "Role: set hostname and hosts"
+  hostname:
+    name: "pc-{{ serial }}"
+  notify:
+    - addInHostsFile

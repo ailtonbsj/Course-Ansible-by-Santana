@@ -1,9 +1,9 @@
 [lab]
-pc-001.local serial=001
-pc-002.local serial=002
+pc-0001.local serial=0001
+pc-0002.local serial=0002
 
 [ubuntu]
-pc-001.local
+pc-0001.local
 
 [centos]
-pc-002.local
+pc-0002.local

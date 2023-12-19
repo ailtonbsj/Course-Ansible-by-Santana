@@ -1,0 +1,23 @@
+---
+# tasks file for mysql
+- name: Install MariaDB Server on Debian
+  apt:
+    update_cache: yes
+    name:
+      - mariadb-server
+      - python3-pymysql
+    state: present
+  when: (ansible_facts['os_family'] == "Debian")
+
+- name: "Start MariaDB"
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: Criando banco de dados no MariaDB on Debian
+  mysql_db:
+    login_unix_socket: "/var/run/mysqld/mysqld.sock"
+    name: "{{ db_wp_name }}"
+    state: present
+  when: (ansible_facts['os_family'] == "Debian")

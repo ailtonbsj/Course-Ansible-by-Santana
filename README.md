@@ -81,4 +81,5 @@ ansible-playbook playbook-01.yml
 
 # Create roles
 ansible-galaxy init serverTools
+ansible-galaxy init mysql
 ```

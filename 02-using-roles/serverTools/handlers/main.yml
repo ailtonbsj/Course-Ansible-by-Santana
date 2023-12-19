@@ -1,0 +1,6 @@
+---
+# handlers file for serverTools
+- name: 'addInHostsFile'
+  lineinfile:
+    path: /etc/hosts
+    line: "127.0.1.1	pc-{{ serial }}"
