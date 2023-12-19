@@ -1,0 +1,22 @@
+---
+- hosts: ubuntu
+  gather_facts: no
+
+  vars:
+    myDict: {
+      binaries: "/usr/bin/ls",
+      configurations: "/etc/lsb-release",
+      launchers: "/usr/share/applications/xfce4-about.desktop"
+    }
+
+  tasks:
+    - name: "List folders"
+      command: "ls {{ item }}"
+      register: out
+      with_items:
+        - "{{ myDict.binaries }}"
+        - "{{ myDict.configurations }}"
+
+    - name: "Debug values" 
+      debug:
+        msg: "{{ out }}"

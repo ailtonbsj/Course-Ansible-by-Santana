@@ -78,4 +78,7 @@ ansible all -m setup -a "filter=ansible_distribution"
 
 # Run a playbook
 ansible-playbook playbook-01.yml
+
+# Create roles
+ansible-galaxy init serverTools
 ```
