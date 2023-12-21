@@ -1,6 +1,7 @@
 ---
 # tasks file for serverTools
 - name: "Role: serverTools softwares utils for sysadmin Debian"
+  tags: setup
   apt:
     update_cache: yes
     cache_valid_time: 3600

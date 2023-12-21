@@ -84,4 +84,7 @@ ansible-galaxy init serverTools
 ansible-galaxy init mysql
 ansible-galaxy init apache
 ansible-galaxy init php
+
+# Run a tag
+ansible-playbook 01-roles.yml --tags "setup"
 ```
