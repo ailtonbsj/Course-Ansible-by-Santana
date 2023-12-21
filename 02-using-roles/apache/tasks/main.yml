@@ -1,0 +1,16 @@
+---
+# tasks file for apache
+- name: Include debian.yml
+  import_tasks: debian.yml
+  when: (ansible_facts['os_family'] == "Debian")
+
+- name: Create folder to host files
+  file:
+    path: "{{ site_folder }}"
+    state: directory
+    mode: '0755'
+
+- name: Copy file index.html simple
+  copy:
+    src: index.html
+    dest: "{{ site_folder }}"

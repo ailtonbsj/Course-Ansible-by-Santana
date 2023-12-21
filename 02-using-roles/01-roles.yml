@@ -5,3 +5,5 @@
   roles:
     - serverTools
     - mysql
+    - apache
+    - php

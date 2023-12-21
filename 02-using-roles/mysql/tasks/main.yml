@@ -15,9 +15,18 @@
     state: started
     enabled: yes
 
-- name: Criando banco de dados no MariaDB on Debian
+- name: Create database on MariaDB - Debian
   mysql_db:
     login_unix_socket: "/var/run/mysqld/mysqld.sock"
     name: "{{ db_wp_name }}"
     state: present
+  when: (ansible_facts['os_family'] == "Debian")
+
+- name: Create user with password, all privileges in database
+  mysql_user:
+    login_unix_socket: "/var/run/mysqld/mysqld.sock"
+    name: "{{ db_wp_username }}"
+    password: "{{ db_wp_password }}"
+    priv: "{{ db_wp_name }}.*:ALL,GRANT"
+    state:  present
   when: (ansible_facts['os_family'] == "Debian")
