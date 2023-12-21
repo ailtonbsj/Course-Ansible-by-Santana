@@ -7,7 +7,7 @@
 
 Learning Ansible with an [Youtube playlist](https://youtube.com/playlist?list=PLORF-y_edVoDQnky9u2OgyrfirE1dhutX&si=Dnfs1d_0f1k4_AFE).
 
-Creator Mário Santana
+Creator: Mário Santana
 
 ## History of commands
 
